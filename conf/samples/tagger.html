@@ -1,0 +1,112 @@
+<html>
+<head>
+<script>
+function getFieldSelection() {
+	var select_field = window.document.getElementById("tLeft");
+    word='';
+    if (document.selection) {
+        var sel = document.selection.createRange();
+        if (sel.text.length > 0) {
+            word = sel.text;
+        }
+    }
+    else if (select_field.selectionStart || select_field.selectionStart == '0') {
+        var startP = select_field.selectionStart;
+        var endP = select_field.selectionEnd;
+        if (startP != endP) {
+            word = select_field.value.substring(startP, endP);
+        }
+    }
+    return word;
+}
+
+function CopyTitle() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<title>"+tmpText+"</title>";
+}
+function CopyAuthor() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<author>"+tmpText+"</author>";
+}
+function CopyAddress() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<address>"+tmpText+"</address>";
+}
+function CopyAffiliate() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<affiliate>"+tmpText+"</affiliate>";
+}
+function CopyEmail() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<email>"+tmpText+"</email>";
+}
+function CopyNote() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<note>"+tmpText+"</note>";
+}
+function CopyDate() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<date>"+tmpText+"</date>";
+}
+function CopyBook() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<book>"+tmpText+"</book>";
+}
+function CopyPublisher() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<publisher>"+tmpText+"</publisher>";
+}
+function CopyLocation() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<location>"+tmpText+"</location>";
+}
+function CopyVolume() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<volume>"+tmpText+"</volume>";
+}
+function CopyPages() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<pages>"+tmpText+"</pages>";
+}
+function CopyInstitution() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<institution>"+tmpText+"</institution>";
+}
+function CopyEditor() {
+	var tmpText = getFieldSelection();
+	tRight.value += "<editor>"+tmpText+"</editor>";
+}
+
+function AddBR() {
+tRight.value += "\n";
+}
+
+</script>
+</head>
+<body>
+
+    <table width="100%">
+        <tr>
+			<td width="48%" align="center"><textarea id="tLeft" rows="40" cols="80"></textarea></td>
+            <td>
+			<input type="button" onclick="CopyTitle()" value="Title"/><br/>
+			<input type="button" onclick="CopyAuthor()" value="Author"/><br/>
+			<input type="button" onclick="CopyAddress()" value="Address"/><br/>
+			<input type="button" onclick="CopyAffiliate()" value="Affiliate"/><br/>
+			<input type="button" onclick="CopyEmail()" value="Email"/><br/>
+			<input type="button" onclick="CopyNote()" value="Note"/><br/>
+			<input type="button" onclick="CopyDate()" value="Date"/><br/>
+			<input type="button" onclick="CopyBook()" value="Book"/><br/>
+			<input type="button" onclick="CopyPublisher()" value="Publisher"/><br/>
+			<input type="button" onclick="CopyLocation()" value="Location"/><br/>
+			<input type="button" onclick="CopyVolume()" value="Volume"/><br/>
+			<input type="button" onclick="CopyPages()" value="Pages"/><br/>
+			<input type="button" onclick="CopyInstitution()" value="Institution"/><br/>
+			<input type="button" onclick="CopyEditor()" value="Editor"/><br/>
+			<input type="button" onclick="AddBR()" value="br" /></td>
+            <td width="48%" align="center"><textarea id="tRight" rows="40" cols="80"></textarea></td>
+        </tr>
+    </table>
+
+</body>
+</html> 
